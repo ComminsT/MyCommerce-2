@@ -24,7 +24,7 @@
             <th>Name</th>
             <th>Content</th>
             <th>Price</th>
-            <th>Details</th>
+            <th>Catégorie</th>
         </tr>
         </thead>
         <tr>
@@ -32,6 +32,7 @@
             <td>${product.name}</td>
             <td>${product.content}</td>
             <td>${product.price}</td>
+            <td>${product.category.libelee}</td>
         </tr>
     </table>
 </c:if>

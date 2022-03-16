@@ -23,6 +23,7 @@
             <th>ID</th>
             <th>Name</th>
             <th>Price</th>
+            <th>Category</th>
             <th colspan="2">Actions</th>
         </tr>
         </thead>
@@ -30,6 +31,7 @@
             <td>${product.id}</td>
             <td>${product.name}</td>
             <td>${product.price}</td>
+            <td>${product.category.libelee}</td>
             <td><a href="/product-details?id=${product.id}">Details</a></td>
             <td>
                 <form action="/auth/removeProduct" method="post">

@@ -34,10 +34,11 @@
             	<a href="/update-category?id=${category.id}">Update</a>
 
             </td>
+
             <td>
                 <form action="/auth/removeCategory" method="post">
                     <input hidden name="categoryId" value="${category.id}">
-                    <button type="submit">Remove</button>
+                    <button name="remove" type="submit">Remove</button>
                 </form>
             </td>
         </tr>

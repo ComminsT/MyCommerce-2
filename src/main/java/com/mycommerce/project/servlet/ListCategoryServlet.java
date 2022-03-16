@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.mycommerce.project.dao.DaoFactory;
 import com.mycommerce.project.dao.base.CategoryDao;
@@ -45,6 +46,7 @@ public class ListCategoryServlet extends HttpServlet {
 
 
     }
+
 	
 
 }

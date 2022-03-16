@@ -13,12 +13,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet("/auth/add-product")
 public class AddProductServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        List<Category> categoryList = DaoFactory.getCategoryDao().getAll();
+        System.out.println("categoryList size : "+categoryList.size());
+        req.setAttribute("categoryList",categoryList);
         RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/addProduct.jsp");
         rd.forward(req, resp);
     }
