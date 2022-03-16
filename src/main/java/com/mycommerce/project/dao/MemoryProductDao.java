@@ -18,7 +18,7 @@ class MemoryProductDao implements ProductDao {
     }
 
     @Override
-    public Long addProduct(Product product) {
+    public Long add(Product product) {
         Long var1 = idSequence;
         idSequence = idSequence + 1L;
         product.setId(var1);
@@ -27,7 +27,7 @@ class MemoryProductDao implements ProductDao {
     }
 
     @Override
-    public void updateProduct(Product product) {
+    public void update(Product product) {
         int index = this.getProductIndexById(product.getId());
         if (index > -1) {
             products.set(index, product);
@@ -37,7 +37,7 @@ class MemoryProductDao implements ProductDao {
     }
 
     @Override
-    public Product findProductById(Long id) {
+    public Product findById(Long id) {
         int index = this.getProductIndexById(id);
         if (index > -1) {
             Product product = (Product) products.get(index);
@@ -48,17 +48,17 @@ class MemoryProductDao implements ProductDao {
     }
 
     @Override
-    public List<Product> getAllProducts() {
+    public List<Product> getAll() {
         return Collections.unmodifiableList(products);
     }
 
     @Override
-    public void removeProduct(Product product) {
-        this.removeProduct(product.getId());
+    public void remove(Product product) {
+        this.remove(product.getId());
     }
 
     @Override
-    public void removeProduct(Long id) {
+    public void remove(Long id) {
         int index = this.getProductIndexById(id);
         if (index > -1) {
             products.remove(index);

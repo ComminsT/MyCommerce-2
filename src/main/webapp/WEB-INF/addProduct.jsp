@@ -14,6 +14,11 @@
     <label for="content">Content</label>
     <input id="content" type="text" name="pContent">
     <label for="price">Price</label>
+
+    <label for="productCategory">Sélectionnez une catégorie</label>
+    <select name="category"
+
+
     <input id="price" type="number" name="pPrice">
     <button type="submit">Add</button>
 </form>

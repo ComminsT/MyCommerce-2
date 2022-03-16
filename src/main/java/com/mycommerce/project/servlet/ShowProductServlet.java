@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 @WebServlet(ShowProductServlet.URL)
 public class ShowProductServlet extends HttpServlet {
@@ -26,7 +25,7 @@ public class ShowProductServlet extends HttpServlet {
         try {
             Long id = Long.parseLong(idStr);
             ProductDao productDao = DaoFactory.getProductDao();
-            Product product = productDao.findProductById(id);
+            Product product = productDao.findById(id);
 
             req.setAttribute("product", product);
 

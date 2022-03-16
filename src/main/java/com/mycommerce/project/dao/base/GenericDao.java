@@ -4,15 +4,15 @@ import java.util.List;
 
 public interface GenericDao<T, ID extends Number> {
 
-    ID addProduct(T object);
+    ID add(T object);
 
-    void updateProduct(T object);
+    void update(T object);
 
-    T findProductById(ID id);
+    T findById(ID id);
 
-    List<T> getAllProducts();
+    List<T> getAll();
 
-    void removeProduct(T var1);
+    void remove(T var1);
 
-    void removeProduct(ID id);
+    void remove(ID id);
 }

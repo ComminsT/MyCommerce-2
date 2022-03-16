@@ -7,21 +7,24 @@ public class Product implements Serializable {
     private String name;
     private String content;
     private float price;
+    private Category category;
 
     public Product() {
     }
 
-    Product(Long id, String name, String content, float price) {
+    Product(Long id, String name, String content, float price,Category category) {
         this.id = id;
         this.name = name;
         this.content = content;
         this.price = price;
+        this.category=category;
     }
 
-    public Product(String name, String content, float price) {
+    public Product(String name, String content, float price, Category category) {
         this.name = name;
         this.content = content;
         this.price = price;
+        this.category=category;
     }
 
     public Long getId() {
@@ -54,5 +57,13 @@ public class Product implements Serializable {
 
     public void setPrice(float price) {
         this.price = price;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }

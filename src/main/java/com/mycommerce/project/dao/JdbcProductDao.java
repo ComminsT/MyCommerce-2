@@ -12,35 +12,35 @@ class JdbcProductDao implements ProductDao {
     }
 
     @Override
-    public Long addProduct(Product var1) {
+    public Long add(Product var1) {
         //TODO
         return null;
     }
 
     @Override
-    public void updateProduct(Product var1) {
+    public void update(Product var1) {
         //TODO
     }
 
     @Override
-    public Product findProductById(Long var1) {
-        //TODO
-        return null;
-    }
-
-    @Override
-    public List<Product> getAllProducts() {
+    public Product findById(Long var1) {
         //TODO
         return null;
     }
 
     @Override
-    public void removeProduct(Product var1) {
+    public List<Product> getAll() {
+        //TODO
+        return null;
+    }
+
+    @Override
+    public void remove(Product var1) {
         //TODO
     }
 
     @Override
-    public void removeProduct(Long var1) {
+    public void remove(Long var1) {
         //TODO
     }
 }
