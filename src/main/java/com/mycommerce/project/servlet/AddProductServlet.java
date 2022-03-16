@@ -31,6 +31,7 @@ public class AddProductServlet extends HttpServlet {
         try {
             float productPrice = Float.parseFloat(productPriceStr);
             Product newProduct = new Product(productName, productContent, productPrice);
+            System.out.println("test");
             ProductDao productDao = DaoFactory.getProductDao();
             Long id = productDao.add(newProduct);
             resp.sendRedirect(ShowProductServlet.URL + "?id=" + id);
