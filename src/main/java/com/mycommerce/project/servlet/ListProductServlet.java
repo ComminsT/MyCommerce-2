@@ -30,22 +30,5 @@ public class ListProductServlet extends HttpServlet {
         // Forwarding/Displaying listProduct JSP
         RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/listProduct.jsp");
         rd.forward(req, resp);
-
-//        PrintWriter pw = resp.getWriter();
-//        resp.setContentType("text/html");
-//        PrintWriter printWriter = resp.getWriter();
-//        printWriter.println("<html>");
-//        printWriter.println("<head>");
-//        printWriter.println("<title>Product List</title>");
-//        printWriter.println("</head>");
-//        printWriter.println("<body>");
-//        printWriter.println("<h1> Products : </h1>");
-//        pw.println("<ul>");
-//        productList.forEach(product -> {
-//            pw.println("<li>" + product.getName() + "-" + product.getPrice() + "</li>");
-//        });
-//        pw.println("</ul>");
-//        printWriter.println("</body>");
-//        printWriter.println("</html>");
     }
 }

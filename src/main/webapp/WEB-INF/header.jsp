@@ -29,7 +29,7 @@
                             <a class="nav-link" aria-current="page" href="auth/add-product">Add product</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="auth/basic-insert">Basic Insert</a>
+                            <a class="nav-link" aria-current="page" href="auth/add-category">Add category</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="logout">Logout</a>

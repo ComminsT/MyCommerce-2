@@ -3,6 +3,7 @@ package com.mycommerce.project.servlet;
 
 import com.mycommerce.project.dao.DaoFactory;
 import com.mycommerce.project.dao.base.ProductDao;
+import com.mycommerce.project.model.Category;
 import com.mycommerce.project.model.Product;
 
 import javax.servlet.RequestDispatcher;
@@ -27,10 +28,11 @@ public class AddProductServlet extends HttpServlet {
         String productName = req.getParameter("pName");
         String productContent = req.getParameter("pContent");
         String productPriceStr = req.getParameter("pPrice");
-
+        long productCategoryId = Long.parseLong(req.getParameter("pCategory"));
+        Category category = DaoFactory.getCategoryDao().findById(productCategoryId);
         try {
             float productPrice = Float.parseFloat(productPriceStr);
-            Product newProduct = new Product(productName, productContent, productPrice);
+            Product newProduct = new Product(productName, productContent, productPrice,category);
             System.out.println("test");
             ProductDao productDao = DaoFactory.getProductDao();
             Long id = productDao.add(newProduct);

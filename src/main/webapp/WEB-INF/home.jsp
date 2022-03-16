@@ -9,9 +9,9 @@
 
 <h1>${titlePage}</h1>
 
-<a href="/list-product">List product</a>
-<a href="/login">Login</a>
-<a href="/auth/basic-insert">Add product</a>
+<a href="/ist-product">List product</a>
+<a href="login">Login</a>
+<a href="auth/basic-insert">Add product</a>
 
 <jsp:include page="footer.jsp"></jsp:include>
 
