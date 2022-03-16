@@ -26,14 +26,13 @@
         </tr>
         </thead>
         <tr>
+        	
             <td>${category.id}</td>
             <td>${category.libelee}</td>
-
             <td>
-            	<form action="/update-category?id=${category.id}" method="get">
-            		<input type hidden name="categoryId" value="${category.id}">
-            		<button type="submit">update !</button>
-            	</form>
+            
+            	<a href="/update-category?id=${category.id}">Update</a>
+
             </td>
             <td>
                 <form action="/auth/removeCategory" method="post">

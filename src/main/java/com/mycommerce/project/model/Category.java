@@ -14,6 +14,11 @@ public class Category {
     public Category(String libelee) {
         this.libelee = libelee;
     }
+    
+    public Category(long id, String libelee) {
+    	this.id = id;
+    	this.libelee = libelee;
+    }
 
     public void setId(long id) {
         this.id = id;
