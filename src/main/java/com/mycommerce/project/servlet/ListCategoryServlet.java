@@ -36,7 +36,7 @@ public class ListCategoryServlet extends HttpServlet {
 
 
         // Passing data in view
-        req.setAttribute("categoryList", categoryList);
+        req.setAttribute("categoryList", categoryList); 
 
         // Forwarding/Displaying listProduct JSP
         RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/listCategory.jsp");

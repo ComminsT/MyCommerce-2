@@ -32,7 +32,7 @@
             <td>
             	<form action="/update-category?id=${category.id}" method="get">
             		<input type hidden name="categoryId" value="${category.id}">
-            		<button type="submit">update</button>
+            		<button type="submit">update !</button>
             	</form>
             </td>
             <td>
