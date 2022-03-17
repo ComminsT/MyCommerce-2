@@ -1,6 +1,7 @@
 package com.mycommerce.project.dao.base;
 
 import com.mycommerce.project.dao.JdbcCategoryDao;
+import com.mycommerce.project.dao.JdbcPanierDao;
 import com.mycommerce.project.dao.JdbcProductDao;
 import com.mycommerce.project.dao.MemoryCatDao;
 import lombok.Getter;
@@ -14,6 +15,7 @@ public class JPADaoManager {
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("ecommerce");
     private ProductDao productDao = new  JdbcProductDao ();
     private CategoryDao categoryDao = new JdbcCategoryDao();
+    private PanierDao panierDao = new JdbcPanierDao();
 
     private JPADaoManager (){};
     public static JPADaoManager getInstance(){

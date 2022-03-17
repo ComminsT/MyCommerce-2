@@ -3,7 +3,6 @@ package com.mycommerce.project.dao;
 import com.mycommerce.project.dao.base.CategoryDao;
 import com.mycommerce.project.dao.exception.UnknownProductException;
 import com.mycommerce.project.model.Category;
-import com.mycommerce.project.model.Product;
 
 import java.util.ArrayList;
 import java.util.Collections;

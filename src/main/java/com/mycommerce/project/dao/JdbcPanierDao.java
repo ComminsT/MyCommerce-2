@@ -1,8 +1,8 @@
 package com.mycommerce.project.dao;
 
-
 import com.mycommerce.project.dao.base.JPADaoManager;
-import com.mycommerce.project.dao.base.ProductDao;
+import com.mycommerce.project.dao.base.PanierDao;
+import com.mycommerce.project.model.Panier;
 import com.mycommerce.project.model.Product;
 
 import javax.persistence.EntityManager;
@@ -10,13 +10,9 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 import java.util.List;
 
-public class JdbcProductDao implements ProductDao {
-
-    public JdbcProductDao() {
-    }
-
+public class JdbcPanierDao implements PanierDao {
     @Override
-    public Long add(Product p) {
+    public Long add(Panier p) {
         EntityManager em = null;
         EntityTransaction transaction = null;
         try {
@@ -40,7 +36,7 @@ public class JdbcProductDao implements ProductDao {
     }
 
     @Override
-    public void update(Product p) {
+    public void update(Panier p) {
         EntityManager em = null;
         EntityTransaction transaction = null;
         Product product = null;
@@ -61,19 +57,18 @@ public class JdbcProductDao implements ProductDao {
             }
         }
 
-
     }
 
     @Override
-    public Product findById(Long id) {
+    public Panier findById(Long id) {
         EntityManager em = null;
-        Product product = null;
+        Panier panier = null;
 
         try {
             em = JPADaoManager.getInstance().getEmf().createEntityManager();
-            Query query = em.createQuery("from Product where id = :id");
+            Query query = em.createQuery("from Panier where id = :id");
             query.setParameter("id", id);
-            product = (Product) query.getSingleResult();
+            panier = (Panier) query.getSingleResult();
         } catch (Exception e) {
             System.out.println("Erreur : " + e.getMessage());
         } finally {
@@ -81,19 +76,18 @@ public class JdbcProductDao implements ProductDao {
                 em.close();
             }
         }
+        return panier;
 
-
-        return product;
     }
 
     @Override
-    public List<Product> getAll() {
+    public List<Panier> getAll() {
         EntityManager em = null;
-        List<Product> productList = null;
+        List<Panier> panierList = null;
         try {
             em = JPADaoManager.getInstance().getEmf().createEntityManager();
-            Query query = em.createQuery("from Product ");
-            productList = query.getResultList();
+            Query query = em.createQuery("from Panier ");
+            panierList = query.getResultList();
 
         } catch (Exception e) {
             System.out.println("Erreur: " + e.getMessage());
@@ -102,54 +96,55 @@ public class JdbcProductDao implements ProductDao {
                 em.close();
             }
         }
-        return productList;
+        return panierList;
     }
 
     @Override
-    public void remove(Product p) {
-
+    public void remove(Panier p) {
         EntityManager em = null;
         EntityTransaction transaction = null;
-        try{
+        try {
             em = JPADaoManager.getInstance().getEmf().createEntityManager();
             transaction = em.getTransaction();
             transaction.begin();
             em.remove(p);
             transaction.commit();
-        }catch (Exception e){
-            if(transaction !=null){
+        } catch (Exception e) {
+            if (transaction != null) {
                 transaction.rollback();
             }
-            System.out.println("Erreur : "+e.getMessage());
-        }finally {
+            System.out.println("Erreur : " + e.getMessage());
+        } finally {
             if (em != null) {
                 em.close();
             }
         }
+
     }
 
     @Override
     public void remove(Long id) {
         EntityManager em = null;
         EntityTransaction transaction = null;
-        Product product = null;
-        try{
+        Panier panier = null;
+        try {
             em = JPADaoManager.getInstance().getEmf().createEntityManager();
             transaction = em.getTransaction();
             transaction.begin();
-            product = findById(id);
-            em.remove(product);
+            panier = findById(id);
+            em.remove(panier);
             transaction.commit();
 
-        }catch (Exception e){
-            if(transaction !=null){
+        } catch (Exception e) {
+            if (transaction != null) {
                 transaction.rollback();
             }
-        }finally {
-            if(em != null){
+        } finally {
+            if (em != null) {
                 em.close();
             }
         }
 
     }
+
 }
