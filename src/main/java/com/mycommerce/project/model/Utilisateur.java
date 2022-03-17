@@ -1,14 +1,14 @@
 package com.mycommerce.project.model;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToOne;
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Utilisateur extends Personne {
     public static final  boolean isAdmin=false;
 
     @OneToOne
-    private Panier panier = new Panier();
+    private Panier panier;
 
 
     public Utilisateur(String userName, String mdp) {
@@ -18,7 +18,12 @@ public class Utilisateur extends Personne {
     public Utilisateur() {
         super();
     }
-    
+
     public Panier getPanier() {
-    	return this.panier;    }
+        return panier;
+    }
+
+    public void setPanier(Panier panier) {
+        this.panier = panier;
+    }
 }

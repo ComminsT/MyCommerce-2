@@ -2,6 +2,9 @@ package com.mycommerce.project.servlet;
 
 import java.io.IOException;
 
+import com.mycommerce.project.dao.DaoFactory;
+import com.mycommerce.project.model.Utilisateur;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,14 +27,12 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String username = req.getParameter("username");
-
-        if (username != null) {
-            HttpSession httpSession = req.getSession();
-            httpSession.setAttribute("user", username);
-
+        String pwd = req.getParameter("pwd");
+        Utilisateur utilisateur = DaoFactory.getUtilisateurDao().connect(username,pwd);
+        if(utilisateur !=null){
             resp.sendRedirect(ListProductServlet.URL);
-        } else {
-            //TODO
+        }else{
+            System.out.println("Erreur");
         }
 
     }

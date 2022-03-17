@@ -1,9 +1,13 @@
 package com.mycommerce.project.servlet;
 
 import com.mycommerce.project.dao.DaoFactory;
+import com.mycommerce.project.dao.base.JPADaoManager;
 import com.mycommerce.project.dao.base.ProductDao;
 import com.mycommerce.project.model.Product;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,8 +25,7 @@ public class ListProductServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // Fetching all products
-        ProductDao productDao = DaoFactory.getProductDao();
-        List<Product> productList = productDao.getAll();
+        List<Product> productList = JPADaoManager.getInstance().getProductDao().getAll();
 
         // Passing data in view
         req.setAttribute("productList", productList);

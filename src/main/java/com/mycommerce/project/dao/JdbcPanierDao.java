@@ -5,9 +5,9 @@ import com.mycommerce.project.dao.base.PanierDao;
 import com.mycommerce.project.model.Panier;
 import com.mycommerce.project.model.Product;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Query;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.Query;
 import java.util.List;
 
 public class JdbcPanierDao implements PanierDao {
@@ -103,11 +103,13 @@ public class JdbcPanierDao implements PanierDao {
     public void remove(Panier p) {
         EntityManager em = null;
         EntityTransaction transaction = null;
+        Panier panier;
         try {
             em = JPADaoManager.getInstance().getEmf().createEntityManager();
             transaction = em.getTransaction();
             transaction.begin();
-            em.remove(p);
+            panier = em.find(Panier.class,p.getId());
+            em.remove(panier);
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null) {
@@ -131,7 +133,7 @@ public class JdbcPanierDao implements PanierDao {
             em = JPADaoManager.getInstance().getEmf().createEntityManager();
             transaction = em.getTransaction();
             transaction.begin();
-            panier = findById(id);
+            panier = em.find(Panier.class,id);
             em.remove(panier);
             transaction.commit();
 

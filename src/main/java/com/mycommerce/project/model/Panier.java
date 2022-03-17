@@ -1,6 +1,6 @@
 package com.mycommerce.project.model;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,9 +16,7 @@ public class Panier {
             inverseJoinColumns = @JoinColumn(name = "product_id"))
     private List<Product> productList = new ArrayList<>();
     
-    public List<Product> getProductList(){
-    	return this.productList;
-    }
+
 
     public long getId() {
         return id;

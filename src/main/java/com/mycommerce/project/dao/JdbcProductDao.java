@@ -5,9 +5,9 @@ import com.mycommerce.project.dao.base.JPADaoManager;
 import com.mycommerce.project.dao.base.ProductDao;
 import com.mycommerce.project.model.Product;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Query;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.Query;
 import java.util.List;
 
 public class JdbcProductDao implements ProductDao {
@@ -43,7 +43,6 @@ public class JdbcProductDao implements ProductDao {
     public void update(Product p) {
         EntityManager em = null;
         EntityTransaction transaction = null;
-        Product product = null;
         try {
             em = JPADaoManager.getInstance().getEmf().createEntityManager();
             transaction = em.getTransaction();
@@ -110,11 +109,13 @@ public class JdbcProductDao implements ProductDao {
 
         EntityManager em = null;
         EntityTransaction transaction = null;
+        Product product ;
         try{
             em = JPADaoManager.getInstance().getEmf().createEntityManager();
             transaction = em.getTransaction();
             transaction.begin();
-            em.remove(p);
+            product = em.find(Product.class,p.getId());
+            em.remove(product);
             transaction.commit();
         }catch (Exception e){
             if(transaction !=null){
@@ -137,14 +138,16 @@ public class JdbcProductDao implements ProductDao {
             em = JPADaoManager.getInstance().getEmf().createEntityManager();
             transaction = em.getTransaction();
             transaction.begin();
-            product = findById(id);
-            em.remove(product);
+            product = em.find(Product.class,id);
+               em.remove(product);
             transaction.commit();
 
         }catch (Exception e){
+            System.out.println("Erreur : "+e.getMessage());
             if(transaction !=null){
                 transaction.rollback();
             }
+
         }finally {
             if(em != null){
                 em.close();

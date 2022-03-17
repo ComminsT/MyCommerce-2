@@ -58,7 +58,7 @@ public class AddToCartServlet extends HttpServlet {
 		
 		//System.out.println("Panier avant :"+panier.getProductList().size());
 		panier.getProductList().add(p);		
-		System.out.println("Panier aprés :"+panier.getProductList().size());
+		System.out.println("Panier aprÃ©s :"+panier.getProductList().size());
 		System.out.println("size : "+((Utilisateur)httpSession.getAttribute("user")).getPanier().getProductList().size());
 	}
 

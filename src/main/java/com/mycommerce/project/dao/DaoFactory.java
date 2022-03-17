@@ -14,4 +14,5 @@ public final class DaoFactory {
         return new JdbcProductDao();
     }
     public static CategoryDao getCategoryDao(){return new JdbcCategoryDao();}
+    public static JdbcUtilisateurDao getUtilisateurDao(){return new JdbcUtilisateurDao();}
 }

@@ -6,9 +6,9 @@ import com.mycommerce.project.dao.base.CategoryDao;
 import com.mycommerce.project.dao.base.JPADaoManager;
 import com.mycommerce.project.model.Category;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Query;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.Query;
 
 import java.util.List;
 
@@ -19,7 +19,7 @@ public class JdbcCategoryDao implements CategoryDao {
         EntityManager em = null;
         EntityTransaction transaction = null;
         try{
-            em = JPADaoManager.getInstance().getEmf().createEntityManager();
+            em = (EntityManager) JPADaoManager.getInstance().getEmf().createEntityManager();
             transaction = em.getTransaction();
             transaction.begin();
             em.persist(object);
