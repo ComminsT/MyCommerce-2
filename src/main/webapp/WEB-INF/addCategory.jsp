@@ -9,12 +9,13 @@
 
 <html>
 <head>
-    <title>Nouvelles catégories</title>
+    <title>Nouvelle catégorie</title>
 </head>
 <body>
+test23
 <jsp:include page="header.jsp"></jsp:include>
 
-<form action="/auth/add-category" method="post">
+<form action="add-category" method="post">
     <label for="libelee">Libelee</label>
     <input id="libelee" name="cLibelee" type="text">
     <button type="submit">Valider</button>

@@ -15,6 +15,10 @@ public class Panier {
             joinColumns = @JoinColumn(name = "panier_id"),
             inverseJoinColumns = @JoinColumn(name = "product_id"))
     private List<Product> productList = new ArrayList<>();
+    
+    public List<Product> getProductList(){
+    	return this.productList;
+    }
 
     public long getId() {
         return id;

@@ -32,7 +32,7 @@ public class AddCategoryServlet extends HttpServlet {
         try {
             Category newCategory = new Category(categoryLibelee);
             CategoryDao categoryDao = DaoFactory.getCategoryDao();
-            Long id = categoryDao.add(newCategory);
+            categoryDao.add(newCategory);
             resp.sendRedirect(ListCategoryServlet.URL);
         } catch (NumberFormatException e) {
             //TODO

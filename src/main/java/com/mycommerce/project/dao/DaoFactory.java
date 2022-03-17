@@ -11,7 +11,7 @@ public final class DaoFactory {
     }
 
     public static ProductDao getProductDao() {
-        return new MemoryProductDao();
+        return new JdbcProductDao();
     }
-    public static CategoryDao getCategoryDao(){return new MemoryCatDao();}
+    public static CategoryDao getCategoryDao(){return new JdbcCategoryDao();}
 }

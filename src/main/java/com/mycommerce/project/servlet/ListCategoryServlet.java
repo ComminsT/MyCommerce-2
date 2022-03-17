@@ -1,6 +1,7 @@
 package com.mycommerce.project.servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -9,7 +10,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.mycommerce.project.dao.DaoFactory;
 import com.mycommerce.project.dao.base.CategoryDao;
@@ -29,6 +29,7 @@ public class ListCategoryServlet extends HttpServlet {
         // Fetching all category
 
         CategoryDao categoryDao = DaoFactory.getCategoryDao();
+        //List<Category> categoryList = new ArrayList<>();
         List<Category> categoryList = categoryDao.getAll();
         
         for (Category category : categoryList) {

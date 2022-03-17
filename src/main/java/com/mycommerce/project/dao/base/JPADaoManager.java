@@ -4,12 +4,10 @@ import com.mycommerce.project.dao.JdbcCategoryDao;
 import com.mycommerce.project.dao.JdbcPanierDao;
 import com.mycommerce.project.dao.JdbcProductDao;
 import com.mycommerce.project.dao.MemoryCatDao;
-import lombok.Getter;
-
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-@Getter
+
 public class JPADaoManager {
     private static JPADaoManager instance=null;
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("ecommerce");
@@ -27,4 +25,15 @@ public class JPADaoManager {
     public static void stop(){
         instance.emf.close();
     }
+	public EntityManagerFactory getEmf() {
+		return this.emf;
+	}
+	public ProductDao getProductDao() {
+		
+		return this.productDao;
+	}
+	public CategoryDao getCategoryDao() {
+		
+		return this.categoryDao;
+	}
 }

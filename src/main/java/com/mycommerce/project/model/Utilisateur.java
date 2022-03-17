@@ -8,7 +8,7 @@ public class Utilisateur extends Personne {
     public static final  boolean isAdmin=false;
 
     @OneToOne
-    private Panier panier;
+    private Panier panier = new Panier();
 
 
     public Utilisateur(String userName, String mdp) {
@@ -18,4 +18,7 @@ public class Utilisateur extends Personne {
     public Utilisateur() {
         super();
     }
+    
+    public Panier getPanier() {
+    	return this.panier;    }
 }

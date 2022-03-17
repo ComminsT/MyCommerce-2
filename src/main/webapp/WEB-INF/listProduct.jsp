@@ -39,6 +39,12 @@
                     <button type="submit">Remove</button>
                 </form>
             </td>
+            <td>
+                <form action="addToCart" method="post">
+                    <input hidden name="productId" value="${product.id}">
+                    <button type="submit">Ajouter au panier</button>
+                </form>
+            </td>
         </tr>
     </c:forEach>
 </table>
