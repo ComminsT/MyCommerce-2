@@ -29,7 +29,6 @@ public class AddCategoryServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String categoryLibelee = req.getParameter("cLibelee");
-
         try {
             Category newCategory = new Category(categoryLibelee);
             CategoryDao categoryDao = DaoFactory.getCategoryDao();

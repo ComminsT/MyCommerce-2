@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class MemoryCatDao implements CategoryDao {
+ public class MemoryCatDao implements CategoryDao {
     private static List<Category> categories = new ArrayList();
     private static Long idSequence = 1L;
     MemoryCatDao() {

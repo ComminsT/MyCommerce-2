@@ -10,4 +10,12 @@ public class Utilisateur extends Personne {
     @OneToOne
     private Panier panier;
 
+
+    public Utilisateur(String userName, String mdp) {
+        super(userName, mdp);
+    }
+
+    public Utilisateur() {
+        super();
+    }
 }

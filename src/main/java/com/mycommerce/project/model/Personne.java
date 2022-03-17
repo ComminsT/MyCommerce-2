@@ -10,4 +10,12 @@ public abstract class Personne {
     private long id;
     private String userName;
     private String mdp;
+
+
+    public Personne() {
+        
+    }
+
+    public Personne(String userName, String mdp) {
+    }
 }

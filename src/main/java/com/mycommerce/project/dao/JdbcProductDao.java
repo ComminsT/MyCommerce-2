@@ -1,20 +1,42 @@
 package com.mycommerce.project.dao;
 
 
+import com.mycommerce.project.dao.base.JPADaoManager;
 import com.mycommerce.project.dao.base.ProductDao;
 import com.mycommerce.project.model.Product;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
 import java.util.List;
 
-class JdbcProductDao implements ProductDao {
+public class JdbcProductDao implements ProductDao {
 
-    JdbcProductDao() {
+    public JdbcProductDao() {
     }
 
     @Override
     public Long add(Product var1) {
-        //TODO
-        return null;
+        EntityManager em = null;
+        EntityTransaction transaction = null;
+        try{
+            em = JPADaoManager.getInstance().getEmf().createEntityManager();
+            transaction = em.getTransaction();
+            transaction.begin();
+            em.persist(var1);
+            transaction.commit();
+
+        }catch(Exception e){
+            if(transaction!=null){
+                transaction.rollback();
+            }
+            System.out.println("Erreur : "+e.getMessage());
+        }finally {
+            if(em != null){
+                em.close();
+            }
+        }
+        return var1.getId();
     }
 
     @Override
@@ -31,7 +53,21 @@ class JdbcProductDao implements ProductDao {
     @Override
     public List<Product> getAll() {
         //TODO
-        return null;
+        EntityManager em = null;
+        List<Product> productList = null;
+        try{
+            em= JPADaoManager.getInstance().getEmf().createEntityManager();
+            Query query = em.createQuery("from Product ");
+            productList = query.getResultList();
+
+        }catch(Exception e){
+            System.out.println("Erreur: "+e.getMessage());
+        }finally {
+            if(em!=null){
+                em.close();
+            }
+        }
+        return productList;
     }
 
     @Override
